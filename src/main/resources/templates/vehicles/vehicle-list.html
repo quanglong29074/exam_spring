@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:include="/include/head"></th:block>
+</head>
+<body>
+<nav th:insert="~{include/navbar :: copy}"></nav>
+
+<button style="border: none;margin-bottom:10px" class="btn btn-primary"><a style="text-decoration: none; color: white;" href="/vehicles/add">+ Create</a> </button>
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Model</th>
+    <th>Year</th>
+    <th>Color</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="vehicle : ${vehicles}">
+    <td th:text="${vehicle.vehicleId}">1</td>
+    <td th:text="${vehicle.vehicleName}">Name</td>
+    <td th:text="${vehicle.vehicleModel}">Model</td>
+    <td th:text="${vehicle.yearOfManufacture}">Year</td>
+    <td th:text="${vehicle.vehicleColor}">Color</td>
+    <td>
+      <a class="btn btn-primary" th:href="@{/vehicles/edit/{id}(id=${vehicle.vehicleId})}">Edit</a>
+      <a class="btn btn-danger" th:href="@{/vehicles/delete/{id}(id=${vehicle.vehicleId})}">Delete</a>
+    </td>
+  </tr>
+  <a href="/logout"> logout</a>
+
+  </tbody>
+</table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<th:block th:include="/include/footer"></th:block>
+
+<h1>Hello</h1>
+</body>
+</html>

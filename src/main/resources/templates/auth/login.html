@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <th:block th:include="/include/head"></th:block>
+</head>
+<body>
+<th:block th:include="/include/navbar"></th:block>
+<div class="form-container">
+    <div class="form-box">
+        <h1>Login</h1>
+        <form th:action="@{/authenticateUser}" method="post" class="row g-3">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Username</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="username" placeholder="Enter your username">
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword2" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword2" name="password" placeholder="Password">
+            </div>
+            <div class="col-auto">
+                <button style="float: right" type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+            </div>
+        </form>
+    </div>
+</div>
+<th:block th:include="/include/footer"></th:block>
+</body>
+</html>

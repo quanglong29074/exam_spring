@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:include="/include/head"></th:block>
+</head>
+<body>
+<th:block th:include="/include/navbar"></th:block>
+
+<form th:action="@{/vehicles/add}" th:object="${vehicle}" method="post">
+  <input type="hidden" th:field="*{vehicleId}" />
+
+  <div class="mb-3">
+    <label  class="form-label">Name:</label>
+    <input type="text" th:field="*{vehicleName}" class="form-control"  >
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Model:</label>
+    <input type="text" th:field="*{vehicleModel}" class="form-control" >
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Year:</label>
+    <input type="number" th:field="*{yearOfManufacture}" class="form-control"  >
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Color:</label>
+    <input type="text" th:field="*{vehicleColor}" class="form-control"  >
+  </div>
+
+  <button type="submit">Save</button>
+
+</form>
+
+
+<th:block th:include="/include/footer"></th:block>
+
+<h1>Hello</h1>
+</body>
+</html>
